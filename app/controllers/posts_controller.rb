@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index # メモを保存した後にトップページへリダイレクトされる
+    post = Post.create(content: params[:content])
+    # redirect_to action: :index # メモを保存した後にトップページへリダイレクトされる
+    render json:{ post: post } # レスポンスをJSONに変更
   end
 end
